@@ -18,6 +18,9 @@
 .card.empty{
 	background: #ddd;
 	border: dashed 1px black;
+	background-image: url(https://m1.behance.net/rendition/modules/45018999/disp/d642abf4e3b76d5ba119ab273393f983.jpg);
+	background-size:contain;
+
 }
 .col-sm-2.card{
 	width:11%;
@@ -38,5 +41,10 @@
 	width:100%;
 	background-color: #0f0f0f;
 	color:#fff;
+}
+
+#reset-button{
+	background-color: red;
+	margin-top:5px;
 }
 

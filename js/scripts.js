@@ -2,18 +2,19 @@
 var theDeck = [];
 var placeInDeck = 4;
 var playerTotalCards = 2;
-var playerTotalCards = 2;
+var dealerTotalCards = 2;
 
 $(document).ready(function(){
 	$('button').click(function(){
 		var clickedButton = ($(this).attr('id'));
 		if(clickedButton === 'deal-button'){
 			deal();
-		}else if(clickedButton==='hit-button'){
+		}else if(clickedButton ==='hit-button'){
 			hit();
-		}else if(clickedButton=== 'stand-button'){
+		}else if(clickedButton === 'stand-button'){
 			stand();
-		}
+		}else if(clickedButton === 'reset-button')
+			reset();
 	});
 });
 
@@ -29,13 +30,17 @@ function deal(){
 	placeCard(dealerHand[1], 'dealer', 'two');
 	calculateTotal(playerHand, 'player');
 	calculateTotal(dealerHand, 'dealer');
+	
+	$('#dealer-card-one').addClass('empty');
+	$('#dealer-card-two').addClass('empty');
+	$('.player-total').show('total');
+
 }
 
 function placeCard(card, who, slot){
 	var currentId = '#' + who + '-card-' + slot;
 	$(currentId).removeClass('empty');
 	$(currentId).html(card);
-
 	// what if the total is over 21? This is a good place to check for 21
 
 }
@@ -67,6 +72,7 @@ function shuffleDeck(){
 			suit = "c";
 		}
 		//card number
+	var cardNumber = "";
 		for(i=1; i <= 13; i++){
 			theDeck.push(i+suit);
 		}
@@ -102,15 +108,16 @@ function hit(){
 	placeInDeck ++;
 	playerTotalCards++;
 	calculateTotal(playerHand, 'player');
-	if (calculateTotal(playerHand, 'player') > 21){
 	
+	var playerHas = Number($('.player-total').html());
+	var dealerHas = Number($('.dealer-total').html());
+	if((playerHas)>21){
+		bust('player');
 	}
-
-checkWin();
 }
 
 function stand(){
-	var dealerTotal = $('dealer-total').html
+	var dealerTotal = Number($('.dealer-total').html());
 	
 	while(dealerTotal<17){
 	if(dealerTotalCards == 2){
@@ -123,16 +130,19 @@ function stand(){
 		slot = 'six';
 	}
 
-
 	placeCard(theDeck[placeInDeck],'dealer',slot);
 	dealerHand.push(theDeck[placeInDeck]);
-	playerTotalCards++;
+	dealerTotalCards++;
 	placeInDeck ++;
 	calculateTotal(dealerHand, 'dealer');
 	dealerTotal = $('.dealer-total').html();
 	}
 	//We now know the dealer has at least 17. Check to see who is higher.
 	checkWin();
+	$('#dealer-card-one').removeClass('empty');
+	$('#dealer-card-two').removeClass('empty');
+	placeCard();
+	$('.dealer-total').show('total');
 }
 
 function checkWin(){
@@ -165,8 +175,25 @@ function bust(who){
 	}else{
 		$('#message').html('The Dealer has busted!');
 	}
+	$('#hit-button').prop('disabled',true);
+	$('#stand-button').prop('disabled',true);
 }
 
+function reset(){
+	playerTotalCards = 2;
+	dealerTotalCards = 2;
+	playerHand = [];
+	dealerHand = [];
+	total = 0;
+	$('.card').addClass('empty');
+	$('.player-total').html('0');
+	$('.dealer-total').hide('total');
+	$('.player-total').hide('total');
+	$('#hit-button').prop('disabled', false);
+	$('#stand-button').prop('disabled', false);
+	$('#deal-button').prop('disabled',false);
+	$('#message').html("Click Deal!");
+}
 
 
 

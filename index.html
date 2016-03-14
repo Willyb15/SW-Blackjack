@@ -28,7 +28,7 @@ Deal should call shuffleDeck
 				<div class="row">
 					<div class="dealer-hand-wrapper col-sm-12">
 						<div class="dealer-total-wrapper col-sm-2">
-						Dealer Total <span class="dealer-total">0</span>
+						Dealer Total <span style="display:none" class="dealer-total">0</span>
 						</div>
 						<div id="dealer-card-one" class="card empty col-sm-2">-</div>
 						<div id="dealer-card-two" class="card empty col-sm-2">-</div>
@@ -42,7 +42,7 @@ Deal should call shuffleDeck
 				<div class="row">
 					<div class="player-hand-wrapper col-sm-12">
 						<div class="player-total-wrapper col-sm-2">
-						Player Total <span class="player-total">0</span>
+						Player Total <span style="display:none" class="player-total"></span>
 						</div>
 						<div id="player-card-one" class="card empty col-sm-2">-</div>
 						<div id="player-card-two" class="card empty col-sm-2">-</div>
@@ -64,6 +64,9 @@ Deal should call shuffleDeck
 
 					<div class="col-sm-2 col-sm-offset-1">
 						<button id="stand-button">Stand</button>
+					</div>
+					<div class="col-sm-2 col-sm-offset-5">
+						<button id="reset-button">Reset</button>
 					</div>
 				</div>
 				<div class='row'>
