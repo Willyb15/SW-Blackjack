@@ -3,6 +3,9 @@ var theDeck = [];
 var placeInDeck = 4;
 var playerTotalCards = 2;
 var dealerTotalCards = 2;
+$('#hit-button').prop('disabled', true);
+$('#stand-button').prop('disabled', true);
+
 
 $(document).ready(function(){
 	$('button').click(function(){
@@ -34,6 +37,9 @@ function deal(){
 	$('#dealer-card-one').addClass('empty');
 	$('#dealer-card-two').addClass('empty');
 	$('.player-total').show('total');
+	$('#deal-button').prop('disabled',true);
+	$('#hit-button').prop('disabled', false);
+	$('#stand-button').prop('disabled', false);
 
 }
 
@@ -42,6 +48,18 @@ function placeCard(card, who, slot){
 	$(currentId).removeClass('empty');
 	$(currentId).html(card);
 	// what if the total is over 21? This is a good place to check for 21
+	
+		for(i=0; i<=card.length; i++){
+		var cardValue = Number(card[i].slice(0, -1));
+		if(cardValue==='11'){
+			card = 'J';
+		}else if (cardValue==='12'){
+			card = 'Q';
+		}else if (cardValue=='13'){
+			card ="K";
+		}
+	}
+
 
 }
 
@@ -51,6 +69,11 @@ function calculateTotal(hand, who){
 		// purposely NOT fixing 11, 12, or 13, or 1 = 11
 		var cardValue = Number(hand[i].slice(0, -1));
 		console.log(cardValue);
+		
+		if((cardValue === 11) || (cardValue === 12) || (cardValue === 13)){
+			cardValue = 10;
+		}
+
 		total += cardValue;
 	}
 	var idToGet ='.' + who + '-total';
@@ -72,7 +95,6 @@ function shuffleDeck(){
 			suit = "c";
 		}
 		//card number
-	var cardNumber = "";
 		for(i=1; i <= 13; i++){
 			theDeck.push(i+suit);
 		}
@@ -189,8 +211,8 @@ function reset(){
 	$('.player-total').html('0');
 	$('.dealer-total').hide('total');
 	$('.player-total').hide('total');
-	$('#hit-button').prop('disabled', false);
-	$('#stand-button').prop('disabled', false);
+	$('#hit-button').prop('disabled', true);
+	$('#stand-button').prop('disabled', true);
 	$('#deal-button').prop('disabled',false);
 	$('#message').html("Click Deal!");
 }
