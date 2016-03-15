@@ -54,20 +54,28 @@
 }
 
 .club{
-	background-image: url(https://pixabay.com/static/uploads/photo/2012/05/07/18/37/club-48940_640.png);
-	color:green;
+	background-image: url(http://members.iinet.net.au/~kitiara@westnet.com.au/pictures/club.png);
+    background-size: 120%;
+    background-position: -8px 10px;
+    background-repeat: no-repeat;
+}
+.spade {
+	background-image: url(http://rlv.zcache.com/black_spade_standing_photo_sculpture-r50dd475f83644189bf059d7b2f05e830_x7saw_8byvr_324.jpg);
+    background-size: 78%;
+    background-position: 11px 26px;
+    background-repeat: no-repeat;
 }
 
-.spade{
-	background-color: black;
-	color: blue;
-}
 .heart{
-	background-color: red;
-	color: orange;
+	background-image: url(https://pixabay.com/static/uploads/photo/2012/04/13/20/38/hearts-33564_640.png);
+	background-size: 68%;
+    background-position: 12px 35px;
+    background-repeat: no-repeat;
 }
 
 .diamond{
-	background-color:red;
-	color: yellow;
-}
+	background-image: url(https://img0.etsystatic.com/010/0/5224796/il_340x270.462213202_iecp.jpg);
+    background-size: 106%;
+    background-position: 0px 26px;
+    background-repeat: no-repeat;
+ }

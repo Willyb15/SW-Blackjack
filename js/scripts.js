@@ -33,7 +33,7 @@ function deal(){
 	calculateTotal(playerHand, 'player');
 	calculateTotal(dealerHand, 'dealer');
 	
-	$('#dealer-card-one').addClass('empty');
+	// $('#dealer-card-one').addClass('empty');
 	$('#dealer-card-two').addClass('empty');
 	$('.player-total').show('total');
 	$('#deal-button').prop('disabled',true);
@@ -44,6 +44,7 @@ function deal(){
 
 function placeCard(card, who, slot){
 	// var currentId = '#' + who + '-card-' + slot;
+	
 	// $(currentId).removeClass('empty');
 	// what if the total is over 21? This is a good place to check for 21
 	var currentId = '#' + who + '-card-' + slot;
@@ -53,20 +54,20 @@ function placeCard(card, who, slot){
 	var ace = card.slice(0,1);
 	var aceSuit = card.slice(1)
 
-	console.log(numberValue);
-	console.log(suitValue);
-	console.log(card);
-	console.log(ace);
+	// console.log(numberValue);
+	// console.log(suitValue);
+	// console.log(card);
+	// console.log(ace);
 
 	if(numberValue ==='11'){
 		card = 'J' + suitValue;
-		console.log(card);
+		// console.log(card);
 	}else if (numberValue ==='12'){
 		card = 'Q' + suitValue;
-		console.log(card);
+		// console.log(card);
 	}else if (numberValue ==='13'){
 		card = "K" + suitValue;
-		console.log(card);
+		// console.log(card);
 	} else if(ace === "1" && numberValue != 10)
 		card = "A" + aceSuit;
 
@@ -83,6 +84,7 @@ function placeCard(card, who, slot){
 	
 	
 	$(currentId).removeClass('empty');
+	// $(currentId).html('<img src="' + card + 'png'>)
 	$(currentId).html(card);
 }
 
@@ -111,11 +113,11 @@ function stand(){
 	checkWin();
 	$('#dealer-card-one').removeClass('empty');
 	$('#dealer-card-two').removeClass('empty');
-	placeCard();
 	$('.dealer-total').show('total');
 }
 
 function calculateTotal(hand, who){
+	var hasAce = 0;
 	var total = 0;
 	for(i=0; i<hand.length; i++){
 		// purposely NOT fixing 11, 12, or 13, or 1 = 11
@@ -125,9 +127,20 @@ function calculateTotal(hand, who){
 		if((cardValue === 11) || (cardValue === 12) || (cardValue === 13)){
 			cardValue = 10;
 		}
-
+		
+		if(cardValue === 1){
+			hasAce = 1
+			if(total + 11 <=21){
+				cardValue = 11;
+			}else{
+				cardValue = 1;
+			}
+		}
 		total += cardValue;
-	}
+	}	
+		if((hasAce) && (total>21)){
+			total -= 10;
+		}	
 	var idToGet ='.' + who + '-total';
 	$(idToGet).html(total);
 	return total;
@@ -151,7 +164,6 @@ function shuffleDeck(){
 			Number(theDeck.push(i+suit));
 		}
 	}
-
 
 	var numberofTimesToShuffle = 500;
 	for(i=1; i<numberofTimesToShuffle; i++){
@@ -190,37 +202,42 @@ function hit(){
 	if((playerHas)>21){
 		bust('player');
 	}
+
 }
 
 function checkWin(){
 	var playerHas = Number($('.player-total').html());
 	var dealerHas = Number($('.dealer-total').html());
 	
-	if(dealerHas >21){
+	if(dealerHas > 21){
 		// dealer busted
 		bust('dealer');
 	}else{
 		// Neither player has busted
 		if(playerHas > dealerHas){
 			//playerwon
-			$('#message').html('You have beaten the dealer!');
+			$('#message').html('You have beaten the dealer with ' + playerHas + '!');
+		}else if(dealerHas > playerHas && playerHas < 21){
+			$('#message').html('The dealer has ' + dealerHas +'!');
+
 		}else if(dealerHas > playerHas){
 			//dealer won
-			$('#message').html('Sorry the dealer has beaten you!');			
+			$('#message').html('Sorry the dealer has beaten you!');				
 		}else
 		//tie
 			$('#message').html('It\'s a push!');		
 		}
-	
-	
 }
 
 function bust(who){
+	var playerHas = Number($('.player-total').html());
+	var dealerHas = Number($('.dealer-total').html());
+
 
 	if (who === 'player'){
-		$('#message').html('You have busted!');
+		$('#message').html('You have busted with ' + playerHas + '!');
 	}else{
-		$('#message').html('The Dealer has busted!');
+		$('#message').html('The Dealer has busted with ' + dealerHas + '!');
 	}
 	$('#hit-button').prop('disabled',true);
 	$('#stand-button').prop('disabled',true);
