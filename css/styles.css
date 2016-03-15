@@ -52,3 +52,22 @@
 	margin-top: 10px;
 	color: black;
 }
+
+.club{
+	background-image: url(https://pixabay.com/static/uploads/photo/2012/05/07/18/37/club-48940_640.png);
+	color:green;
+}
+
+.spade{
+	background-color: black;
+	color: blue;
+}
+.heart{
+	background-color: red;
+	color: orange;
+}
+
+.diamond{
+	background-color:red;
+	color: yellow;
+}

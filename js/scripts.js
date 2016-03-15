@@ -43,44 +43,77 @@ function deal(){
 }
 
 function placeCard(card, who, slot){
-	var currentId = '#' + who + '-card-' + slot;
-	$(currentId).removeClass('empty');
+	// var currentId = '#' + who + '-card-' + slot;
+	// $(currentId).removeClass('empty');
 	// what if the total is over 21? This is a good place to check for 21
+	var currentId = '#' + who + '-card-' + slot;
+	var numberValue = card.slice(0,2);
+	var suitValue = card.slice(2);
+	var suitValue2 = card.slice(1);
+	var ace = card.slice(0,1);
+	var aceSuit = card.slice(1)
+
+	console.log(numberValue);
+	console.log(suitValue);
+	console.log(card);
+	console.log(ace);
+
+	if(numberValue ==='11'){
+		card = 'J' + suitValue;
+		console.log(card);
+	}else if (numberValue ==='12'){
+		card = 'Q' + suitValue;
+		console.log(card);
+	}else if (numberValue ==='13'){
+		card = "K" + suitValue;
+		console.log(card);
+	} else if(ace === "1" && numberValue != 10)
+		card = "A" + aceSuit;
+
 	
-		
-		if (card.length > 2 && card.length != 10) {
-			var tempCard = card;
-			var numberValue = card.slice(0,2);
-			var suitValue = card.slice(2);
-
-console.log(numberValue);
-console.log(suitValue);
-console.log(tempCard);
-console.log(card);
-
-			if(numberValue ==='11'){
-				card = 'J' + suitValue;
-				console.log(card);
-			}else if (numberValue ==='12'){
-				card = 'Q' + suitValue;
-				console.log(card);
-			}else if (numberValue ==='13'){
-				card = "K" + suitValue;
-				console.log(card);
-			}
-
-			$(currentId).html(card);
-		}  else {
-			$(currentId).html(card);
+	if(suitValue ==='c' || suitValue2 ==='c'){
+		$(currentId).addClass('club');
+	}else if(suitValue==='h'|| suitValue2 ==='h'){
+		$(currentId).addClass('heart');
+	}else if(suitValue==="s" || suitValue2 ==='s'){
+		$(currentId).addClass('spade');
+	}else if(suitValue==='d'|| suitValue2 ==='d'){
+		$(currentId).addClass('diamond');
 	}
+	
+	
+	$(currentId).removeClass('empty');
+	$(currentId).html(card);
 }
 
+function stand(){
+	var dealerTotal = Number($('.dealer-total').html());
 	
+	while(dealerTotal<17){
+	if(dealerTotalCards == 2){
+		slot = 'three';
+	}else if (dealerTotalCards === 3){ 
+		slot = 'four';
+	}else if (dealerTotalCards === 4){ 
+		slot = 'five';
+	}else if (dealerTotalCards === 5){ 
+		slot = 'six';
+	}
 
-	
-
-
-
+	placeCard(theDeck[placeInDeck],'dealer',slot);
+	dealerHand.push(theDeck[placeInDeck]);
+	dealerTotalCards++;
+	placeInDeck ++;
+	calculateTotal(dealerHand, 'dealer');
+	dealerTotal = $('.dealer-total').html();
+	}
+	//We now know the dealer has at least 17. Check to see who is higher.
+	checkWin();
+	$('#dealer-card-one').removeClass('empty');
+	$('#dealer-card-two').removeClass('empty');
+	placeCard();
+	$('.dealer-total').show('total');
+}
 
 function calculateTotal(hand, who){
 	var total = 0;
@@ -118,6 +151,8 @@ function shuffleDeck(){
 			Number(theDeck.push(i+suit));
 		}
 	}
+
+
 	var numberofTimesToShuffle = 500;
 	for(i=1; i<numberofTimesToShuffle; i++){
 		card1 = Math.floor(Math.random()*52);
@@ -155,35 +190,6 @@ function hit(){
 	if((playerHas)>21){
 		bust('player');
 	}
-}
-
-function stand(){
-	var dealerTotal = Number($('.dealer-total').html());
-	
-	while(dealerTotal<17){
-	if(dealerTotalCards == 2){
-		slot = 'three';
-	}else if (dealerTotalCards === 3){ 
-		slot = 'four';
-	}else if (dealerTotalCards === 4){ 
-		slot = 'five';
-	}else if (dealerTotalCards === 5){ 
-		slot = 'six';
-	}
-
-	placeCard(theDeck[placeInDeck],'dealer',slot);
-	dealerHand.push(theDeck[placeInDeck]);
-	dealerTotalCards++;
-	placeInDeck ++;
-	calculateTotal(dealerHand, 'dealer');
-	dealerTotal = $('.dealer-total').html();
-	}
-	//We now know the dealer has at least 17. Check to see who is higher.
-	checkWin();
-	$('#dealer-card-one').removeClass('empty');
-	$('#dealer-card-two').removeClass('empty');
-	placeCard();
-	$('.dealer-total').show('total');
 }
 
 function checkWin(){
@@ -227,6 +233,10 @@ function reset(){
 	dealerHand = [];
 	total = 0;
 	$('.card').addClass('empty');
+	$('.card').removeClass('heart');
+	$('.card').removeClass('spade');
+	$('.card').removeClass('diamond');
+	$('.card').removeClass('club');
 	$('.player-total').html('0');
 	$('.dealer-total').hide('total');
 	$('.player-total').hide('total');
