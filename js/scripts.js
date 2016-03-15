@@ -26,7 +26,6 @@ function deal(){
 	shuffleDeck();
 	playerHand = [ theDeck[0], theDeck[2] ];
 	dealerHand = [ theDeck[1], theDeck[3] ];
-	placeInDeck = 4;
 	placeCard(playerHand[0], 'player', 'one');
 	placeCard(dealerHand[0], 'dealer', 'one');
 	placeCard(playerHand[1], 'player', 'two');
@@ -46,29 +45,49 @@ function deal(){
 function placeCard(card, who, slot){
 	var currentId = '#' + who + '-card-' + slot;
 	$(currentId).removeClass('empty');
-	$(currentId).html(card);
 	// what if the total is over 21? This is a good place to check for 21
 	
-		for(i=0; i<=card.length; i++){
-		var cardValue = Number(card[i].slice(0, -1));
-		if(cardValue==='11'){
-			card = 'J';
-		}else if (cardValue==='12'){
-			card = 'Q';
-		}else if (cardValue=='13'){
-			card ="K";
-		}
+		
+		if (card.length > 2 && card.length != 10) {
+			var tempCard = card;
+			var numberValue = card.slice(0,2);
+			var suitValue = card.slice(2);
+
+console.log(numberValue);
+console.log(suitValue);
+console.log(tempCard);
+console.log(card);
+
+			if(numberValue ==='11'){
+				card = 'J' + suitValue;
+				console.log(card);
+			}else if (numberValue ==='12'){
+				card = 'Q' + suitValue;
+				console.log(card);
+			}else if (numberValue ==='13'){
+				card = "K" + suitValue;
+				console.log(card);
+			}
+
+			$(currentId).html(card);
+		}  else {
+			$(currentId).html(card);
 	}
-
-
 }
+
+	
+
+	
+
+
+
 
 function calculateTotal(hand, who){
 	var total = 0;
 	for(i=0; i<hand.length; i++){
 		// purposely NOT fixing 11, 12, or 13, or 1 = 11
 		var cardValue = Number(hand[i].slice(0, -1));
-		console.log(cardValue);
+		// console.log(cardValue);
 		
 		if((cardValue === 11) || (cardValue === 12) || (cardValue === 13)){
 			cardValue = 10;
@@ -96,7 +115,7 @@ function shuffleDeck(){
 		}
 		//card number
 		for(i=1; i <= 13; i++){
-			theDeck.push(i+suit);
+			Number(theDeck.push(i+suit));
 		}
 	}
 	var numberofTimesToShuffle = 500;
