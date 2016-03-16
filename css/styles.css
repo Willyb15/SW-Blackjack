@@ -18,8 +18,9 @@
 .card.empty{
 	background: #ddd;
 	border: 1px black;
-	background-image: url(https://m1.behance.net/rendition/modules/45018999/disp/d642abf4e3b76d5ba119ab273393f983.jpg);
-	background-size:contain;
+	background-image: url("../img/swcard.jpg");
+	background-position: 105px 402px;
+	background-size: 850%;
 
 }
 .col-sm-2.card{
