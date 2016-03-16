@@ -5,6 +5,8 @@ var playerTotalCards = 2;
 var dealerTotalCards = 2;
 var playerHas = Number($('.player-total').html());
 var dealerHas = Number($('.dealer-total').html());
+$(".empty").hide();
+
 
 $('#hit-button').prop('disabled', true);
 $('#stand-button').prop('disabled', true);
@@ -46,20 +48,27 @@ function deal(){
 	var dealerHas = Number($('.dealer-total').html());
 	$('#message').html('The Jedi has ' + playerHas +'!');
 
+
+
 	if (calculateTotal(playerHand, 'player')===21){
 		$('#message').html('The Jedi has BlackJack!');
-		$("#player-card-one").fadeOut(1000);
-		$("#player-card-two").fadeOut(1000);
-		$("#player-card-one").fadeIn(1000);
-		$("#player-card-two").fadeIn(1000);
+		$("#player-card-one").fadeIn(500);
+		$("#player-card-two").fadeIn(500);
+		$("#player-card-one").animate({left: '250px'});
+		$("#player-card-two").animate({left: '250px'});
 		$('#hit-button').prop('disabled', true);
 	}
+
+		$("#player-card-one").fadeIn(500);
+		$("#player-card-two").fadeIn(2000);
+		$("#dealer-card-one").fadeIn(1000);
+		$("#dealer-card-two").fadeIn(3000);
+
 
 }
 
 function placeCard(card, who, slot){
 	// var currentId = '#' + who + '-card-' + slot;
-	
 	// $(currentId).removeClass('empty');
 	// what if the total is over 21? This is a good place to check for 21
 	var currentId = '#' + who + '-card-' + slot;
@@ -101,18 +110,23 @@ function placeCard(card, who, slot){
 	// $(currentId).html(card);
 }
 
+
 function stand(){
 	var dealerTotal = Number($('.dealer-total').html());
 	
 	while(dealerTotal<17){
 	if(dealerTotalCards == 2){
 		slot = 'three';
+		$("#dealer-card-three").fadeIn(1000);
 	}else if (dealerTotalCards === 3){ 
 		slot = 'four';
+		$("#dealer-card-four").fadeIn(1000);
 	}else if (dealerTotalCards === 4){ 
 		slot = 'five';
+		$("#dealer-card-five").fadeIn(1000);
 	}else if (dealerTotalCards === 5){ 
 		slot = 'six';
+		$("#dealer-card-six").fadeIn(1000);
 	}
 
 	placeCard(theDeck[placeInDeck],'dealer',slot);
@@ -197,12 +211,16 @@ function hit(){
 	var slot = '';
 	if(playerTotalCards === 2){ 
 		slot = "three";
+		$("#player-card-three").fadeIn(1000);
 	}else if (playerTotalCards === 3){ 
 		slot = 'four';
+		$("#player-card-four").fadeIn(1000);
 	}else if (playerTotalCards === 4){ 
 		slot = 'five';
+		$("#player-card-five").fadeIn(1000);
 	}else if (playerTotalCards === 5){ 
 		slot = 'six';
+		$("#player-card-three").fadeIn(1000);
 	}
 
 	placeCard(theDeck[placeInDeck],'player',slot);
@@ -275,6 +293,8 @@ function reset(){
 	$('#stand-button').prop('disabled', true);
 	$('#deal-button').prop('disabled',false);
 	$('#message').html("Click Deal!");
+	$(".empty").hide();
+	
 }
 
 
