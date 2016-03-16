@@ -1,9 +1,23 @@
+body{
+	background-image: url(http://bplusmovieblog.files.wordpress.com/2013/04/return-of-the-jedi-4.png);
+	background-size: 100%;
+    background-position: 0px -222px;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 23px;
+    font-weight: bolder;
+
+    font-style: italic;
+}
+
 .the-table{
-	background-color: green;
-	border-radius:10px;
-	margin-top: 30px;
-	padding:30px 0px;
-	border: 5px solid brown;
+	background-image:url(https://s3.amazonaws.com/bg3-blog/blog/wp-content/uploads/2015/11/lightsaber.jpg);
+    background-position: -6px 330px;
+    background-size: 101%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 30px 0px;
+	border: 5px solid green;
 }
 
 .card{
@@ -18,14 +32,12 @@
 .card.empty{
 	
 	border: 1px black;
-<<<<<<< Updated upstream
 	background-image: url("../img/swcard.jpg");
 	background-position: 105px 402px;
 	background-size: 850%;
-=======
-	background-image: url('../img/swcard.jpg');
 	
->>>>>>> Stashed changes
+	
+
 
 }
 .col-sm-2.card{
@@ -79,9 +91,302 @@
     background-repeat: no-repeat;
 }
 
-.diamond{
+/*.diamond{
 	background-image: url(https://img0.etsystatic.com/010/0/5224796/il_340x270.462213202_iecp.jpg);
     background-size: 106%;
     background-position: 0px 26px;
     background-repeat: no-repeat;
+ }*/
+
+.diamond2d{
+	background-image: url("../img/swcard.jpg");
+background-position: -30px -39px;
+background-size: 835%;
+}
+
+.diamond3d{
+	background-image: url("../img/swcard.jpg");
+background-position: -125px -39px;
+background-size: 835%;
  }
+.diamond4d{
+	background-image: url("../img/swcard.jpg");
+background-position: -221px -39px;
+background-size: 835%;
+}
+.diamond5d{
+	background-image: url("../img/swcard.jpg");
+background-position: -316px -39px;
+background-size: 835%;
+}
+.diamond6d{
+	background-image: url("../img/swcard.jpg");
+background-position: -412px -39px;
+background-size: 835%;
+ }
+.diamond7d{
+	background-image: url("../img/swcard.jpg");
+background-position: -506px -39px;
+background-size: 835%;
+}
+.diamond8d{
+	background-image: url("../img/swcard.jpg");
+background-position: -601px -39px;
+background-size: 835%;
+
+}
+.diamond8d{
+	background-image: url("../img/swcard.jpg");
+    background-position: 107px -41px;
+    background-size: 850%;
+
+}
+.diamond9d{
+	background-image: url("../img/swcard.jpg");
+background-position: -31px 665px;
+background-size: 835%;
+}
+.diamond10{
+	background-image: url("../img/swcard.jpg");
+background-position: -126px 665px;
+background-size: 835%;
+}
+.diamond11{
+	background-image: url("../img/swcard.jpg");
+background-position: -219px 665px;
+background-size: 835%; }
+.diamond12{
+	background-image: url("../img/swcard.jpg");
+background-position: -316px 665px;
+background-size: 835%;
+}
+
+.diamond13{
+	background-image: url("../img/swcard.jpg");
+background-position: -413px 665px;
+background-size: 835%;
+}
+
+.diamond1d{
+	background-image: url("../img/swcard.jpg");
+background-position: -506px 665px;
+background-size: 835%;
+}
+
+.heart2h{
+background-image: url("../img/swcard.jpg");
+    background-position: -32px -306px;
+    background-size: 835%;
+}
+.heart3h{
+background-image: url("../img/swcard.jpg");
+    background-position: -127px -306px;
+    background-size: 835%;
+}
+.heart4h{
+background-image: url("../img/swcard.jpg");
+    background-position: -222px -306px;
+    background-size: 835%;
+}
+.heart5h{
+background-image: url("../img/swcard.jpg");
+background-position: -316px -306px;
+    background-size: 835%;
+
+}
+.heart6h{
+background-image: url("../img/swcard.jpg");
+    background-position: -412px -306px;
+    background-size: 835%;
+
+}
+.heart7h{
+background-image: url("../img/swcard.jpg");
+    background-position: -507px -306px;
+    background-size: 835%;
+}
+.heart8h{
+background-image: url("../img/swcard.jpg");
+    background-position: -603px -306px;
+    background-size: 835%;
+
+}
+.heart9h{
+background-image: url("../img/swcard.jpg");
+background-position: -31px -837px;
+    background-size: 835%;
+
+}
+.heart10{
+background-image: url("../img/swcard.jpg");
+    background-position: -126px -837px;
+    background-size: 835%;
+}
+.heart11{
+background-image: url("../img/swcard.jpg");
+    background-position: -220px -837px;
+    background-size: 835%;
+}
+.heart12{
+background-image: url("../img/swcard.jpg");
+    background-position: -316px -837px;
+    background-size: 835%;
+
+}
+.heart13{
+background-image: url("../img/swcard.jpg");
+    background-position: -412px -837px;
+    background-size: 835%;
+
+}
+.heart1h{
+background-image: url("../img/swcard.jpg");
+background-position: -506px -837px;
+ background-size: 835%;
+}
+
+.club2c{
+background-image: url("../img/swcard.jpg");
+    background-position: -32px -173px;
+    background-size: 835%;
+}
+.club3c{
+background-image: url("../img/swcard.jpg");
+    background-position: -126px -173px;
+    background-size: 835%;
+}
+.club4c{
+background-image: url("../img/swcard.jpg");
+    background-position: -222px -172px;
+    background-size: 835%;
+}
+.club5c{
+background-image: url("../img/swcard.jpg");
+    background-position: -317px -172px;
+    background-size: 835%;
+}
+.club6c{
+background-image: url("../img/swcard.jpg");
+    background-position: -412px -172px;
+    background-size: 835%;}
+.club7c{
+background-image: url("../img/swcard.jpg");
+    background-position: -508px -172px;
+    background-size: 835%;
+}
+.club8c{
+background-image: url("../img/swcard.jpg");
+    background-position: -603px -172px;
+    background-size: 835%;
+}
+.club9c{
+background-image: url("../img/swcard.jpg");
+background-position: -31px -704px;
+    background-size: 835%;
+
+}
+.club10{
+background-image: url("../img/swcard.jpg");
+    background-position: 582px -704px;
+    background-size: 835%;
+}
+.club11{
+background-image: url("../img/swcard.jpg");
+    background-position: 486px -704px;
+    background-size: 835%;
+}
+.club12{
+background-image: url("../img/swcard.jpg");
+    background-position: 390px -704px;
+    background-size: 835%;
+}
+.club13{
+background-image: url("../img/swcard.jpg");
+    background-position: -411px -703px;
+    background-size: 835%;}
+.club1c{
+background-image: url("../img/swcard.jpg");
+ background-position: 910px -704px;
+    background-size: 835%;
+}
+
+.spade2s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -32px -439px;
+    background-size: 835%;
+}
+.spade3s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -126px -438px;
+    background-size: 835%;
+}
+
+.spade4s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -222px -438px;
+    background-size: 835%;
+}
+.spade5s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -316px -438px;
+    background-size: 835%;
+}
+
+.spade6s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -412px -439px;
+    background-size: 835%;
+}
+
+.spade7s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -507px -439px;
+    background-size: 835%;
+}
+
+.spade8s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -603px -439px;
+    background-size: 835%;
+}
+
+.spade9s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -31px 266px;
+    background-size: 835%;
+}
+
+.spade10{
+	background-image: url("../img/swcard.jpg");
+    background-position: -127px 266px;
+    background-size: 835%;
+
+}
+
+.spade11{
+	background-image: url("../img/swcard.jpg");
+    background-position: -221px 266px;
+    background-size: 835%;
+
+}
+
+.spade12{
+	background-image: url("../img/swcard.jpg");
+    background-position: -317px 266px;
+    background-size: 835%;
+}
+
+.spade13{
+	background-image: url("../img/swcard.jpg");
+    background-position: -412px 266px;
+    background-size: 835%;
+}
+
+.spade1s{
+	background-image: url("../img/swcard.jpg");
+    background-position: -507px 266px;
+    background-size: 835%;
+
+}
+
+

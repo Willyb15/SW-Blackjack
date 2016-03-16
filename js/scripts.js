@@ -73,13 +73,13 @@ function placeCard(card, who, slot){
 
 	
 	if(suitValue ==='c' || suitValue2 ==='c'){
-		$(currentId).addClass('club');
+		$(currentId).addClass('club' + numberValue);
 	}else if(suitValue==='h'|| suitValue2 ==='h'){
-		$(currentId).addClass('heart');
+		$(currentId).addClass('heart' +numberValue);
 	}else if(suitValue==="s" || suitValue2 ==='s'){
-		$(currentId).addClass('spade');
+		$(currentId).addClass('spade' + numberValue);
 	}else if(suitValue==='d'|| suitValue2 ==='d'){
-		$(currentId).addClass('diamond');
+		$(currentId).addClass('diamond' + numberValue);
 	}
 	
 	
