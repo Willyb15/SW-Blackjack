@@ -3,6 +3,9 @@ var theDeck = [];
 var placeInDeck = 4;
 var playerTotalCards = 2;
 var dealerTotalCards = 2;
+var playerHas = Number($('.player-total').html());
+var dealerHas = Number($('.dealer-total').html());
+
 $('#hit-button').prop('disabled', true);
 $('#stand-button').prop('disabled', true);
 
@@ -39,6 +42,18 @@ function deal(){
 	$('#deal-button').prop('disabled',true);
 	$('#hit-button').prop('disabled', false);
 	$('#stand-button').prop('disabled', false);
+	var playerHas = Number($('.player-total').html());
+	var dealerHas = Number($('.dealer-total').html());
+	$('#message').html('The Jedi has ' + playerHas +'!');
+
+	if (calculateTotal(playerHand, 'player')===21){
+		$('#message').html('The Jedi has BlackJack!');
+		$("#player-card-one").fadeOut(1000);
+		$("#player-card-two").fadeOut(1000);
+		$("#player-card-one").fadeIn(1000);
+		$("#player-card-two").fadeIn(1000);
+		$('#hit-button').prop('disabled', true);
+	}
 
 }
 
@@ -82,10 +97,8 @@ function placeCard(card, who, slot){
 		$(currentId).addClass('diamond' + numberValue);
 	}
 	
-	
 	$(currentId).removeClass('empty');
-	// $(currentId).html('<img src="' + card + 'png'>)
-	$(currentId).html(card);
+	// $(currentId).html(card);
 }
 
 function stand(){
@@ -140,7 +153,8 @@ function calculateTotal(hand, who){
 	}	
 		if((hasAce) && (total>21)){
 			total -= 10;
-		}	
+		}
+
 	var idToGet ='.' + who + '-total';
 	$(idToGet).html(total);
 	return total;
@@ -198,10 +212,14 @@ function hit(){
 	calculateTotal(playerHand, 'player');
 	
 	var playerHas = Number($('.player-total').html());
+	$('#message').html('The Jedi has ' + playerHas +'!');
 	var dealerHas = Number($('.dealer-total').html());
 	if((playerHas)>21){
 		bust('player');
 	}
+	
+	
+
 
 }
 
@@ -216,13 +234,13 @@ function checkWin(){
 		// Neither player has busted
 		if(playerHas > dealerHas){
 			//playerwon
-			$('#message').html('You have beaten the dealer with ' + playerHas + '!');
+			$('#message').html('You have beaten The Empire with ' + playerHas + '!');
 		}else if(dealerHas > playerHas && playerHas < 21){
-			$('#message').html('The dealer has ' + dealerHas +'!');
+			$('#message').html('The Empire has ' + dealerHas +'!');
 
 		}else if(dealerHas > playerHas){
 			//dealer won
-			$('#message').html('Sorry the dealer has beaten you!');				
+			$('#message').html('Sorry The Empire has destroyed you!');				
 		}else
 		//tie
 			$('#message').html('It\'s a push!');		
@@ -235,9 +253,9 @@ function bust(who){
 
 
 	if (who === 'player'){
-		$('#message').html('You have busted with ' + playerHas + '!');
+		$('#message').html('The Jedi busted with ' + playerHas + '!');
 	}else{
-		$('#message').html('The Dealer has busted with ' + dealerHas + '!');
+		$('#message').html('The Empire has busted with ' + dealerHas + '!');
 	}
 	$('#hit-button').prop('disabled',true);
 	$('#stand-button').prop('disabled',true);
@@ -249,11 +267,7 @@ function reset(){
 	playerHand = [];
 	dealerHand = [];
 	total = 0;
-	$('.card').addClass('empty');
-	$('.card').removeClass('heart');
-	$('.card').removeClass('spade');
-	$('.card').removeClass('diamond');
-	$('.card').removeClass('club');
+	$('.card').removeClass().addClass("card empty col-sm-2");
 	$('.player-total').html('0');
 	$('.dealer-total').hide('total');
 	$('.player-total').hide('total');
