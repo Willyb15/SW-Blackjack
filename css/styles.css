@@ -20,7 +20,9 @@ body{
 	border: 5px solid green;
 }
 
-
+.card-invisible{
+    opacity: 100%;
+}
 
 .card{
 	color: black;

@@ -293,7 +293,7 @@ function reset(){
 	$('#stand-button').prop('disabled', true);
 	$('#deal-button').prop('disabled',false);
 	$('#message').html("Click Deal!");
-	$(".empty").hide();
+	$(".card").hide();
 	
 }
 
