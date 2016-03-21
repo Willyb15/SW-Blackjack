@@ -46,21 +46,27 @@ body{
   }
 }
 
-#deck{
-    position: absolute;
-    top: 78px;
-    left: 390px;
+#deck, #deck2{
     margin:auto;
     height:120px;
     width:30px;
     padding:42px;
-   
     background-image: url("../img/swcard.jpg");
     background-position: 105px 402px;
     background-size: 850%;
-
      animation: spin 5s linear infinite;
 }
+
+#deck{
+    position: absolute;
+    top: 78px;
+    left: 390px;
+}
+ #deck2{
+    position: absolute;
+    top: 78px;
+    right: 390px;
+ }
 
 .card{
 	color: black;
