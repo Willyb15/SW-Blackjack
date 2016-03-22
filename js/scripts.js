@@ -41,10 +41,12 @@ function deal(){
 		
 		$(".card").hide();
 		$('#dealer-card-two').addClass('empty');
-		$("#player-card-one").fadeIn(500).css("visibility", 'visible');;
-		$("#player-card-two").fadeIn(2000).css("visibility", 'visible');
-		$("#dealer-card-one").fadeIn(1000).css("visibility", 'visible');
-		$("#dealer-card-two").fadeIn(2500).css("visibility", 'visible');
+		$('#deck').addClass('animate');
+		$('#deck2').toggle('wobble').toggle('wobble');
+		$("#player-card-one").fadeIn(2000).css("visibility", 'visible');;
+		$("#dealer-card-one").fadeIn(3000).css("visibility", 'visible');
+		$("#dealer-card-two").fadeIn(4500).css("visibility", 'visible');
+		$("#player-card-two").fadeIn(3000).css("visibility", 'visible');
 	
 	// $('#dealer-card-one').addClass('empty');
 
@@ -59,10 +61,10 @@ function deal(){
 
 
 
-	if (calculateTotal(playerHand, 'player')===21){
+	if (calculateTotal(playerHand, 'player')==21){
 		$('#message').html('The Jedi has BlackJack!');
-		$("#player-card-one").fadeIn(500);
-		$("#player-card-two").fadeIn(500);
+		$("#player-card-one").fadeIn(1000);
+		$("#player-card-two").fadeIn(1000);
 		$("#player-card-one").animate({left: '250px'});
 		$("#player-card-two").animate({left: '250px'});
 		$("#player-card-one").animate({left: '0px'});
@@ -120,8 +122,8 @@ function placeCard(card, who, slot){
 
 
 function stand(){
+	$('#deck2').toggle('wobble').toggle('wobble');
 	var dealerTotal = Number($('.dealer-total').html());
-	
 	while(dealerTotal<17){
 	if(dealerTotalCards == 2){
 		slot = 'three';
@@ -149,6 +151,7 @@ function stand(){
 	$('#dealer-card-one').removeClass('empty');
 	$('#dealer-card-two').removeClass('empty');
 	$('.dealer-total').show('total');
+	
 }
 
 function calculateTotal(hand, who){
@@ -243,10 +246,7 @@ function hit(){
 	if((playerHas)>21){
 		bust('player');
 	}
-	
-	
-
-
+	$('#deck2').toggle(50, "linear",'wobble').toggle(50, "linear",'wobble');
 }
 
 function checkWin(){
