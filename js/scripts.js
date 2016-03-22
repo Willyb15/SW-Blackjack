@@ -9,8 +9,8 @@ $(".empty").hide();
 // $(".empty").css("visibility", 'hidden');
 
 
-$('#hit-button').prop('disabled', true);
-$('#stand-button').prop('disabled', true);
+$('#hit-button, #stand-button, #reset-button').prop('disabled', true);
+
 
 
 $(document).ready(function(){
@@ -41,7 +41,7 @@ function deal(){
 		
 		$(".card").hide();
 		$('#dealer-card-two').addClass('empty');
-		$('#deck').addClass('animate');
+		$('#swlogo').addClass('spin');
 		$('#deck2').toggle('wobble').toggle('wobble');
 		$("#player-card-one").fadeIn(2000).css("visibility", 'visible');;
 		$("#dealer-card-one").fadeIn(3000).css("visibility", 'visible');
@@ -52,8 +52,7 @@ function deal(){
 
 	$('.player-total').show('total');
 	$('#deal-button').prop('disabled',true);
-	$('#hit-button').prop('disabled', false);
-	$('#stand-button').prop('disabled', false);
+	$('#hit-button, #stand-button').prop('disabled', false);
 	var playerHas = Number($('.player-total').html());
 	var dealerHas = Number($('.dealer-total').html());
 	$('#message').html('The Jedi has ' + playerHas +'!');
@@ -63,8 +62,8 @@ function deal(){
 
 	if (calculateTotal(playerHand, 'player')==21){
 		$('#message').html('The Jedi has BlackJack!');
-		$("#player-card-one").fadeIn(1000);
-		$("#player-card-two").fadeIn(1000);
+		$("#player-card-one, #player-card-two").fadeIn(1000);
+		// $("#player-card-two").fadeIn(1000);
 		$("#player-card-one").animate({left: '250px'});
 		$("#player-card-two").animate({left: '250px'});
 		$("#player-card-one").animate({left: '0px'});
@@ -88,11 +87,6 @@ function placeCard(card, who, slot){
 	var ace = card.slice(0,1);
 	var aceSuit = card.slice(1)
 
-	// console.log(numberValue);
-	// console.log(suitValue);
-	// console.log(card);
-	// console.log(ace);
-
 	if(numberValue ==='11'){
 		card = 'J' + suitValue;
 		// console.log(card);
@@ -105,7 +99,6 @@ function placeCard(card, who, slot){
 	} else if(ace === "1" && numberValue != 10)
 		card = "A" + aceSuit;
 
-	
 	if(suitValue ==='c' || suitValue2 ==='c'){
 		$(currentId).addClass('club' + numberValue);
 	}else if(suitValue==='h'|| suitValue2 ==='h'){
@@ -117,7 +110,6 @@ function placeCard(card, who, slot){
 	}
 	
 	$(currentId).removeClass('empty');
-	// $(currentId).html(card);
 }
 
 
@@ -146,10 +138,9 @@ function stand(){
 	calculateTotal(dealerHand, 'dealer');
 	dealerTotal = $('.dealer-total').html();
 	}
-	//We now know the dealer has at least 17. Check to see who is higher.
+
 	checkWin();
-	$('#dealer-card-one').removeClass('empty');
-	$('#dealer-card-two').removeClass('empty');
+	$('#dealer-card-one, #dealer-card-two').removeClass('empty');
 	$('.dealer-total').show('total');
 	
 }
@@ -216,10 +207,10 @@ function shuffleDeck(){
 	}
 	return (theDeck);
 }
-console.log(theDeck);
 
 function hit(){
 	var slot = '';
+	$('#deck2').toggle(200, "linear",'wobble').toggle(200, "linear",'wobble');
 	if(playerTotalCards === 2){ 
 		slot = "three";
 		$("#player-card-three").fadeIn(1000).css("visibility", 'visible');
@@ -246,7 +237,7 @@ function hit(){
 	if((playerHas)>21){
 		bust('player');
 	}
-	$('#deck2').toggle(50, "linear",'wobble').toggle(50, "linear",'wobble');
+	
 }
 
 function checkWin(){
@@ -277,7 +268,6 @@ function bust(who){
 	var playerHas = Number($('.player-total').html());
 	var dealerHas = Number($('.dealer-total').html());
 
-
 	if (who === 'player'){
 		$('#message').html('The Jedi busted with ' + playerHas + '!');
 	}else{
@@ -295,10 +285,8 @@ function reset(){
 	total = 0;
 	$('.card').removeClass().addClass("card empty col-sm-2");
 	$('.player-total').html('0');
-	$('.dealer-total').hide('total');
-	$('.player-total').hide('total');
-	$('#hit-button').prop('disabled', true);
-	$('#stand-button').prop('disabled', true);
+	$('.dealer-total, .player-total').hide('total');
+	$('#hit-button, #stand-button').prop('disabled', true);
 	$('#deal-button').prop('disabled',false);
 	$('#message').html("Click Deal!");
 	$(".empty").css("visibility", 'hidden');

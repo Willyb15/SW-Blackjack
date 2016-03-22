@@ -32,7 +32,6 @@ body{
   }
 }
 
-
 @keyframes buzz {
   0% {
     transform: translateX(5px) rotate(5deg);
@@ -44,22 +43,6 @@ body{
     transform: translateX(5px) rotate(5deg);
   }
 }
-
-#deck{
-    position: absolute;
-    top: 78px;
-    right: 75px;
-    margin:auto;
-    height: 157px;
-    width: 245px;
-    background-image: url("../img/swlogo.png");
-    background-size: 100%;
-   
-}
-.animate{
-     animation: spin 5s linear infinite;
-}
-
 @keyframes wobble{
   16%{
     transform: translateY(8px);
@@ -90,14 +73,26 @@ body{
     transform: translateY(0);
   }
 }
-.wobble.animate{
-     animation: wobble 1s linear 1;
-     animation: spin 5s linear 1;
+
+#swlogo{
+    position: absolute;
+    top: 5%;
+    right: -42%;
+    margin:auto;
+    height: 157px;
+    width: 245px;
+    background-image: url("../img/swlogo.png");
+    background-size: 100%;
+   
 }
+.spin{
+     animation: spin 5s linear infinite;
+}
+
  #deck2{
-position: absolute;
-    top: 12%;
-    left: 15%;
+    position: absolute;
+    top: 10%;
+    left: -20%;
     height: 120px;
     width: 90px;
     padding: 10px;
@@ -112,7 +107,6 @@ position: absolute;
     border-right-width: 4px;
     border-style: ridge solid groove groove;
     border-color: darkred;
-    border-image: 26% stretch;
     animation: buzz 10s linear infinite;
 }
 
@@ -139,6 +133,7 @@ position: absolute;
 	background-image: url("../img/swcard.jpg");
 	background-position: 105px 402px;
 	background-size: 850%;
+    animation: buzz 20s linear infinite;
 
 }
 .col-sm-2.card{
