@@ -52,7 +52,7 @@ function deal(){
 
 	$('.player-total').show('total');
 	$('#deal-button').prop('disabled',true);
-	$('#hit-button, #stand-button').prop('disabled', false);
+	$('#hit-button, #stand-button, #reset-button').prop('disabled', false);
 	var playerHas = Number($('.player-total').html());
 	var dealerHas = Number($('.dealer-total').html());
 	$('#message').html('The Jedi has ' + playerHas +'!');
@@ -60,7 +60,7 @@ function deal(){
 
 
 
-	if (calculateTotal(playerHand, 'player')==21){
+	if (calculateTotal(playerHand, 'player') == 21){
 		$('#message').html('The Jedi has BlackJack!');
 		$("#player-card-one, #player-card-two").fadeIn(1000);
 		// $("#player-card-two").fadeIn(1000);
@@ -142,6 +142,7 @@ function stand(){
 	checkWin();
 	$('#dealer-card-one, #dealer-card-two').removeClass('empty');
 	$('.dealer-total').show('total');
+	$('#hit-button').prop('disabled',true);
 	
 }
 
@@ -273,8 +274,7 @@ function bust(who){
 	}else{
 		$('#message').html('The Empire has busted with ' + dealerHas + '!');
 	}
-	$('#hit-button').prop('disabled',true);
-	$('#stand-button').prop('disabled',true);
+	$('#hit-button, #stand-button').prop('disabled',true);
 }
 
 function reset(){
