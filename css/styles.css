@@ -1,11 +1,10 @@
 body{
-	background-image: url(http://bplusmovieblog.files.wordpress.com/2013/04/return-of-the-jedi-4.png);
+	background-image: url(https://cssanimation.rocks/demo/starwars/images/bg.jpg);
 	background-size: 100%;
     background-position: 0px -222px;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 23px;
     font-weight: bolder;
-
     font-style: italic;
 }
 
@@ -19,10 +18,98 @@ body{
     padding: 30px 0px;
 	border: 5px solid green;
 }
+.21{
+    background-image: url(background-image: url(http://imagesmtv-a.akamaihd.net/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/10/star-wars-trailer-11-1445308793.gif);
+}
 
 .card-invisible{
     opacity: 100%;
 }
+
+@keyframes spin {
+  0%{
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes buzz {
+  0% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  50% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(5px) rotate(5deg);
+  }
+}
+@keyframes wobble{
+  16%{
+    transform: translateY(8px);
+    transform: translateY(8px);
+    }
+      33% {
+    transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+
+  50% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+
+  66% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+
+  83% {
+    transform: translateY(1px);
+    transform: translateY(1px);
+  }
+
+  100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+#swlogo{
+    position: absolute;
+    top: 5%;
+    right: -42%;
+    margin:auto;
+    height: 157px;
+    width: 245px;
+    background-image: url("../img/swlogo.png");
+    background-size: 100%;
+   
+}
+.spin{
+     animation: spin 5s linear infinite;
+}
+
+ #deck2{
+    position: absolute;
+    top: 10%;
+    left: -20%;
+    height: 120px;
+    width: 90px;
+    padding: 10px;
+    background-image: url("../img/swcard.jpg");
+    background-position: 101px 384px;
+    background-size: 850%;
+    border-width: 5px;
+    border-width: 17px;
+    border-top-width: 4px;
+    border-left-width: 7px;
+    border-bottom: 5px;
+    border-right-width: 4px;
+    border-style: ridge solid groove groove;
+    border-color: darkred;
+    animation: buzz 10s linear infinite;
+}
+
 
 .card{
 	color: black;
@@ -31,17 +118,22 @@ body{
 	width:30px;
 	padding:10px;
 	float:left;
+    animation: buzz 10s linear infinite;
+
 }
 
+.action-buttons button:hover{
+    background-color: #3aed00;
+    color: red;
+    transform: scale(1.3);
+       }
+
 .card.empty{
-	
 	border: 1px black;
 	background-image: url("../img/swcard.jpg");
 	background-position: 105px 402px;
 	background-size: 850%;
-	
-	
-
+    animation: buzz 20s linear infinite;
 
 }
 .col-sm-2.card{
@@ -63,16 +155,19 @@ body{
 	width:100%;
 	background-color: #0f0f0f;
 	color:#fff;
+
 }
 
 #reset-button{
 	background-color: red;
 	margin-top:10px;
+    color:white;
 }
 
 #message{
 	margin-top: 10px;
 	color: black;
+    transform: scale(1.3);
 }
 
 .club{
