@@ -3,7 +3,7 @@
 Created dealers hand and players hand to hold the totals.
 Set each card to a custom width (adjust col-sm-2 to 11% to avoid having to write 3 extra divs).
 Add 3 buttons to the bottom of the table so the user can interact with the game.
-#Wrote some JavaScript with jQuery Awesomeness!
+###Wrote some JavaScript with jQuery Awesomeness!
 Bound each button to a jQuery click function and call the correct function depending on the click.
 Bound a function called deal to the deal button.
 When called, it will create a deck in default order, then swap two cards in the array 500 times.
