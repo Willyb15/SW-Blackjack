@@ -1,4 +1,5 @@
 #Star-Wars Themed BlackJack created in a galaxy not-so-far away with jQuery, HTML and CSS
+![alt text](img/ss.png "Description goes here")
 ###Setup a table using Bootstrap.
 Created dealers hand and players hand to hold the totals.
 Set each card to a custom width (adjust col-sm-2 to 11% to avoid having to write 3 extra divs).
