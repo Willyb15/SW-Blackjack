@@ -115,7 +115,7 @@ body{
 	color: black;
 	background-color: white;
 	height:120px;
-	width:30px;
+	min-width:85px;
 	padding:10px;
 	float:left;
     animation: buzz 10s linear infinite;
